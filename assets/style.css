@@ -148,6 +148,17 @@ a:hover { text-decoration: underline; }
   background: var(--surface); font-size: 13.5px; font-family: inherit; color: var(--ink);
 }
 .sidebar-search input:focus { outline: 2px solid var(--brand-soft); border-color: var(--brand); }
+.sidebar-search-all {
+  width: 100%; margin-top: 8px; padding: 8px 10px; border-radius: 9px;
+  border: 1px dashed var(--line-2); background: var(--surface-2);
+  color: var(--ink-2); font-family: inherit; font-size: 12.5px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+}
+.sidebar-search-all:hover { border-color: var(--brand); color: var(--brand-2); }
+.sidebar-search-all kbd {
+  font-family: var(--mono); font-size: 10.5px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 5px; padding: 0 5px; color: var(--ink-3);
+}
 
 .sidebar-nav { flex: 1; overflow-y: auto; padding-right: 4px; }
 .sidebar-nav::-webkit-scrollbar { width: 8px; }
@@ -419,7 +430,10 @@ figcaption { margin-top: 10px; font-size: 13px; color: var(--ink-3); text-align:
   .content { padding-top: 20px; max-width: 100%; }
   .pager { grid-template-columns: 1fr; }
   .hero { padding: 24px 20px; }
-  .topbar-tools { display: none; }
+  /* Keep search reachable on narrow screens; drop only the text shortcuts. */
+  .topbar-tools .topbar-link { display: none; }
+  .topbar-tools { margin-left: auto; }
+  .search-btn kbd { display: none; }
 }
 
 @media print {
