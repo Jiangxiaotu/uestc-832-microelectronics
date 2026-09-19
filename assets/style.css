@@ -305,6 +305,14 @@ blockquote p:last-child { margin-bottom: 0; }
 .callout-quiz { border-left-color: #6b7280; background: #f8fafc; }
 .callout-quiz .callout-title { color: #374151; }
 
+/* 公式中每个变量的含义 —— 每一条公式下面都要配一块 */
+.callout-vars { border-left-color: #0f766e; background: #f4fbfa; }
+.callout-vars .callout-title { color: #0b5f59; }
+.callout-vars .table-wrap { margin: 6px 0 2px; border-color: #cfe9e6; }
+.callout-vars table { min-width: 420px; font-size: 14px; }
+.callout-vars th { background: #e6f5f3; color: #0b5f59; }
+.callout-vars td:first-child { white-space: nowrap; font-family: var(--mono); font-size: 13px; }
+
 details.deep {
   margin: 18px 0; border: 1px dashed var(--line-2); border-radius: var(--radius-sm);
   background: var(--surface); overflow: hidden;
