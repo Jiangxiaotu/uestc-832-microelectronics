@@ -308,10 +308,23 @@ blockquote p:last-child { margin-bottom: 0; }
 /* 公式中每个变量的含义 —— 每一条公式下面都要配一块 */
 .callout-vars { border-left-color: #0f766e; background: #f4fbfa; }
 .callout-vars .callout-title { color: #0b5f59; }
-.callout-vars .table-wrap { margin: 6px 0 2px; border-color: #cfe9e6; }
-.callout-vars table { min-width: 420px; font-size: 14px; }
-.callout-vars th { background: #e6f5f3; color: #0b5f59; }
-.callout-vars td:first-child { white-space: nowrap; font-family: var(--mono); font-size: 13px; }
+.callout-vars ul {
+  list-style: none; margin: 4px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2px 22px;
+}
+.callout-vars li {
+  margin: 0; padding: 3px 0 3px 14px; position: relative;
+  font-size: 14.5px; line-height: 1.7; color: var(--ink-2);
+}
+.callout-vars li::before {
+  content: ""; position: absolute; left: 2px; top: 13px;
+  width: 5px; height: 5px; border-radius: 50%; background: #0f766e; opacity: .55;
+}
+.callout-vars li .katex { font-size: .98em; }
+@media (max-width: 700px) {
+  .callout-vars ul { grid-template-columns: 1fr; }
+}
 
 details.deep {
   margin: 18px 0; border: 1px dashed var(--line-2); border-radius: var(--radius-sm);
@@ -338,6 +351,20 @@ figure {
 }
 figure svg { display: block; width: 100%; height: auto; max-width: 100%; }
 figcaption { margin-top: 10px; font-size: 13px; color: var(--ink-3); text-align: center; }
+
+/* 课件原图：直接裁自 PPT，标注来源，样式上与原手绘矢量图区分 */
+figure.cw { border-left: 3px solid var(--accent); padding: 14px 14px 10px; }
+figure.cw img {
+  display: block; width: 100%; height: auto; max-width: 100%;
+  border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff;
+}
+figure.cw::before {
+  content: "课件原图"; display: inline-block; margin-bottom: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: .5px;
+  color: #9a4a06; background: #fff2e2; border: 1px solid #f0d5b8;
+  border-radius: 20px; padding: 1px 9px;
+}
+figure.cw figcaption { color: var(--ink-2); }
 
 /* -------------------------------------------------------------- home page */
 .home { max-width: 980px; }
